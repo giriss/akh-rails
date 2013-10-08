@@ -1,4 +1,5 @@
 App2::Application.routes.draw do
+  get "welcome/index"
   get "learn/lesson1"
   get "learn/lesson2"
   get "learn/lesson3"
