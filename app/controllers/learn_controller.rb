@@ -109,7 +109,7 @@ class LearnController < ApplicationController
   end
   
   def lesson3
-      @name = params(:name)
+      @name = params[:name]
   end
   
   def lesson4
