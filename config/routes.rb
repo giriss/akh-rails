@@ -1,5 +1,5 @@
 App2::Application.routes.draw do
-  get 'learn/lesson3/:name', to: 'learn#lesson3', name: /[a-zA-Z]+/
+  get 'learn/lesson3/:name', to: 'learn#lesson3', constraints: {name: /[a-zA-Z]+/}
   get "welcome", to: "welcome#index"
   get "welcome/index"
   get "learn/lesson1"
