@@ -1,9 +1,12 @@
 App2::Application.routes.draw do
+  get "welcome", to: "welcome#index"
   get "welcome/index"
   get "learn/lesson1"
   get "learn/lesson2"
   get "learn/lesson3"
-  root to: 'application#index'
+  get "learn/lesson4"
+  get "learn/lesson5"
+  root to: 'welcome#index'
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 

@@ -107,4 +107,16 @@ class LearnController < ApplicationController
         
         render text: @style + "<h1>" + @t + "</h1>" + @x.join + "</body>"
   end
+  
+  def lesson3
+  end
+  
+  def lesson4
+      render text: :Lesson4
+  end
+  
+  def lesson5
+      render text: :Lesson5
+  end
+
 end
