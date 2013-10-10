@@ -1,5 +1,5 @@
 class LearnController < ApplicationController
-  #require 'net/http'
+  require 'net/http'
   def lesson1
         source = <<-EOS
             SyntaxError in WelcomeController#lesson1
