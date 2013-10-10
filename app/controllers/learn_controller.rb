@@ -1,4 +1,5 @@
 class LearnController < ApplicationController
+  #require 'net/http'
   def lesson1
         source = <<-EOS
             SyntaxError in WelcomeController#lesson1
@@ -113,7 +114,9 @@ class LearnController < ApplicationController
   end
   
   def lesson4
-      render text: :Lesson4
+      uri = URI "http://akh-django.herokuapp.com/"
+      res = Net::HTTP.get uri
+      render text: res
   end
   
   def lesson5
