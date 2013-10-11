@@ -108,16 +108,16 @@ class LearnController < ApplicationController
         
         render text: @style + "<h1>" + @t + "</h1>" + @x.join + "</body>"
   end
-  skip_before_filter :verify_authenticity_token
+
   def lesson3
       @name = params[:name]
        render text: @name
   end
   
   def lesson4
-      uri = URI "http://akh-rails.herokuapp.com/learn/lesson3"
-      res = Net::HTTP.post_form( uri, { :name => :Akhile } )
-      render text: res.body
+      uri = URI "http://akh-rails.herokuapp.com/learn/lesson3/Akhile"
+      res = Net::HTTP.get uri
+      render text: res
   end
   
   def lesson5
