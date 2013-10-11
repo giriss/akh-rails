@@ -111,14 +111,24 @@ class LearnController < ApplicationController
   end
 
   def lesson3
+    if params[:name] then
       @name = params[:name]
-       render text: @name
+    else
+      @name = 'default'
+    end
+    render text: @name
   end
   
   def lesson4
-      uri = URI "http://akh-rails.shellyapp.com/learn/lesson3"
-      res = Net::HTTP.post_form uri, :name => params[:name]
-      render text: res.body
+
+    if params[:name] then
+      @name = params[:name]
+    else
+      @name = 'default'
+    end
+    uri = URI "http://akh-rails.shellyapp.com/learn/lesson3"
+    res = Net::HTTP.post_form uri, :name => @name
+    render text: res.body
   end
   
   def lesson5
