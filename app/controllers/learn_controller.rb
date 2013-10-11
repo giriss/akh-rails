@@ -1,4 +1,5 @@
 class LearnController < ApplicationController
+   skip_before_filter :verify_authenticity_token
   require 'net/http'
   def lesson1
         source = <<-EOS
