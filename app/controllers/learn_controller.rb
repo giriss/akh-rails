@@ -1,6 +1,6 @@
 class LearnController < ApplicationController
   require 'net/http'
-  skip_before_filter :verify_authenticity_token
+  skip_before_action :verify_authenticity_token, only: [:lesson3]
   def lesson1
         source = <<-EOS
             SyntaxError in WelcomeController#lesson1
