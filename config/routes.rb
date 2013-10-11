@@ -5,7 +5,9 @@ App2::Application.routes.draw do
   get "learn/lesson1"
   get "learn/lesson2"
   post "learn/lesson3"
+  get "learn/lesson3"
   get "learn/lesson4/:name", to: "learn#lesson4", constraints: {name: /[A-Za-z]+/}
+  get "learn/lesson4"
   get "learn/lesson5/:num/:power", to: "learn#lesson5", constraints: {num: /\d+/, power: /\d+/ }
   root 'welcome#index'
   # The priority is based upon order of creation: first created -> highest priority.
