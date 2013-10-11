@@ -116,9 +116,9 @@ class LearnController < ApplicationController
   end
   
   def lesson4
-      uri = URI "http://akh-django.herokuapp.com/"
-      res = Net::HTTP.get uri
-      render text: res
+      uri = URI "http://akhi.kd.io:3000/learn/lesson4"
+      res = Net::HTTP.post_form uri, :name => params[:name]
+      render text: res.body
   end
   
   def lesson5
