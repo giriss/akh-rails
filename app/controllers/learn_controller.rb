@@ -120,7 +120,10 @@ class LearnController < ApplicationController
   end
   
   def lesson5
-      render text: :Lesson5
+      @num = params[:num].to_f
+      @power = params[:power].to_f
+      @ret = @num ** @power
+      render text: @ret
   end
 
 end
