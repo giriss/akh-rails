@@ -116,7 +116,7 @@ class LearnController < ApplicationController
   end
   
   def lesson4
-      uri = URI "http://akhi.kd.io:3000/learn/lesson4"
+      uri = URI "http://akh-rails.shellyapp.com/learn/lesson3"
       res = Net::HTTP.post_form uri, :name => params[:name]
       render text: res.body
   end
