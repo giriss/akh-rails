@@ -1,5 +1,5 @@
 App2::Application.routes.draw do
-  get 'learn/lesson3/:name', to: 'learn#lesson3', constraints: {name: /[a-zA-Z]+/}
+  root "welcome#index"
   get "welcome", to: "welcome#index"
   get "welcome/index"
   get "learn/lesson1"
@@ -9,7 +9,6 @@ App2::Application.routes.draw do
   get "learn/lesson4/:name", to: "learn#lesson4", constraints: {name: /[A-Za-z]+/}
   get "learn/lesson4"
   get "learn/lesson5/:num/:power", to: "learn#lesson5", constraints: {num: /\d+/, power: /\d+/ }
-  root 'welcome#index'
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
