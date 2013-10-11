@@ -4,7 +4,7 @@ App2::Application.routes.draw do
   get "welcome/index"
   get "learn/lesson1"
   get "learn/lesson2"
-  get "learn/lesson3"
+  post "learn/lesson3"
   get "learn/lesson4"
   get "learn/lesson5/:num/:power", to: "learn#lesson5", constraints: {num: /\d+/, power: /\d+/ }
   root 'welcome#index'
