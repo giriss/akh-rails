@@ -1,5 +1,8 @@
 class LearnController < ApplicationController
+  
   require 'net/http'
+  require 'net/https'
+  
   skip_before_action :verify_authenticity_token, only: [:lesson3]
   def lesson1
         source = <<-EOS
