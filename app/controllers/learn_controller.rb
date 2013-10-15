@@ -137,5 +137,33 @@ class LearnController < ApplicationController
       @ret = @num ** @power
       render text: @ret
   end
+  
+  def lesson6
+    # POST a send money using Payza api (Testmode=TRUE)
+    @data = {
+      :USER => "akhil05@mail.com",
+      :PASSWORD => "vaHYkV4Mkwqv8dzF",
+      :AMOUNT => "25",
+      :CURRENCY => "USD",
+      :RECEIVEREMAIL => "client_1_akhil05@mail.com",
+      :SENDEREMAIL => "akhil05@mail.com",
+      :PURCHASETYPE => "1",
+      :NOTE => "This is a test transaction.",
+      :TESTMODE => "1"
+    }
+    @url = "https://api.payza.com/svc/api.svc/sendmoney"
+    @uri = URI @url
+#=begin
+    @uri = URI.parse @url
+    @https = Net::HTTP.new @uri.host, @uri.port
+    @https.use_ssl = true
+    @post = Net::HTTP::Post.new @uri.path
+    @post.set_form_data @data
+    @req = @https.start {|https| https.request @post}
+#=end
+#   @req = Net::HTTP.post_form @uri, @data
+    @ret = "Post to send money using payza (Test mode), pretty c0ol huh !?!<br />" + @req.body
+    render text: @ret
+  end
 
 end
