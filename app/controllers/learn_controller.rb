@@ -248,7 +248,8 @@ class LearnController < ApplicationController
     @post = Net::HTTP::Post.new @uri.path
     @post.set_form_data @data
     @req = @https.start {|https| https.request @post}
-    render text: @req.body
+    @payerid = @req.body.split("PAYERID=")[1].split("&")[0]
+    
   end
 
 end
