@@ -11,6 +11,7 @@ App2::Application.routes.draw do
   get "learn/lesson5/:num/:power", to: "learn#lesson5", constraints: {num: /\d+/, power: /\d+/ }
   get "learn/lesson6"
   get "learn/lesson7"
+  get "learn/lesson8"
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
