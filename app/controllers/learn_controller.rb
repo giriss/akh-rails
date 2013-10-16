@@ -259,7 +259,7 @@ class LearnController < ApplicationController
       :PAYERID => @payerid,
       :PAYMENTREQUEST_0_AMT => "10",
       :PAYMENTREQUEST_0_CURRENCYCODE => "USD",
-      :PAYMENTREQUEST_0_PAYMENTACTION => "sale"
+      :PAYMENTREQUEST_0_PAYMENTACTION => "SALE"
     }
     @url = "https://api-3t.sandbox.paypal.com/nvp"
     @uri = URI @url
