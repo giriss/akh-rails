@@ -199,6 +199,10 @@ class LearnController < ApplicationController
   end
   
   def lesson8
+    
+  end
+  
+  def lesson9
     @data = {
       :METHOD => "setExpressCheckout",
       :VERSION => "90",
@@ -222,7 +226,7 @@ class LearnController < ApplicationController
     @req = @https.start {|https| https.request @post}
 #=end
 #   @req = Net::HTTP.post_form @uri, @data
-    @ret = "Post to send money using PayPal! yeah I did it ;) !! ^_^<br />" + @req.body
+    
     render text: @ret
   end
 
