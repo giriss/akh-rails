@@ -249,7 +249,9 @@ class LearnController < ApplicationController
     @post.set_form_data @data
     @req = @https.start {|https| https.request @post}
     @payerid = @req.body.split("PAYERID=")[1].split("&")[0]
-    
+    @data = {
+      :METHOD => "DoExpressCheckoutPayment",
+    }
   end
 
 end
