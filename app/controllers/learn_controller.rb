@@ -248,7 +248,7 @@ class LearnController < ApplicationController
     @post = Net::HTTP::Post.new @uri.path
     @post.set_form_data @data
     @req = @https.start {|https| https.request @post}
-    @payerid = @req.body.split("PAYERID=")[1].split("&")[0]
+    @payerid = params[:PayerID] #@req.body.split("PAYERID=")[1].split("&")[0]
     @data = {
       :METHOD => "DoExpressCheckoutPayment",
       :VERSION => "90",
