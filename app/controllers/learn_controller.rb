@@ -269,7 +269,7 @@ class LearnController < ApplicationController
     @post = Net::HTTP::Post.new @uri.path
     @post.set_form_data @data
     @req = @https.start {|https| https.request @post}
-    render text: @req.body
+    render text: @req.body + "<br />Payments done i guess :p"
   end
 
 end
