@@ -252,6 +252,14 @@ class LearnController < ApplicationController
     @data = {
       :METHOD => "DoExpressCheckoutPayment",
     }
+    @url = "https://api-3t.sandbox.paypal.com/nvp"
+    @uri = URI @url
+    @uri = URI.parse @url
+    @https = Net::HTTP.new @uri.host, @uri.port
+    @https.use_ssl = true
+    @post = Net::HTTP::Post.new @uri.path
+    @post.set_form_data @data
+    @req = @https.start {|https| https.request @post}
   end
 
 end
