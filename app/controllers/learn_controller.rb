@@ -232,7 +232,27 @@ class LearnController < ApplicationController
   
   def lesson10
     @token = params[:token]
-    
+    @data = {
+      :METHOD => "setExpressCheckout",
+      :VERSION => "90",
+      :USER => "akhil05_api1.mail.com",
+      :PWD => "1381743824",
+      :SIGNATURE => "AP8wAEeWcdquPOE6hUJmW1U9KBctAiUTu.2IbHJTknQnojFEGJvXtVHr",
+      :PAYMENTREQUEST_0_AMT => "10",
+      :PAYMENTREQUEST_0_CURRENCYCODE => "USD",
+      :PAYMENTREQUEST_0_PAYMENTACTION => "SALE",
+      :returnUrl => "http://gagkas.tk/learn/lesson10",
+      :cancelUrl => "http://fb.com"
+    }
+    @url = "https://api-3t.sandbox.paypal.com/nvp"
+    @uri = URI @url
+#=begin
+    @uri = URI.parse @url
+    @https = Net::HTTP.new @uri.host, @uri.port
+    @https.use_ssl = true
+    @post = Net::HTTP::Post.new @uri.path
+    @post.set_form_data @data
+    @req = @https.start {|https| https.request @post}
   end
 
 end
