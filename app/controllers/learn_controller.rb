@@ -129,7 +129,7 @@ class LearnController < ApplicationController
     else
       @name = 'default'
     end
-    uri = URI "http://akh-rails.shellyapp.com/learn/lesson3"
+    uri = URI "http://hselihka.tk/learn/lesson3"
     res = Net::HTTP.post_form uri, :name => @name
     render text: res.body
   end
