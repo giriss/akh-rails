@@ -13,6 +13,7 @@ App2::Application.routes.draw do
   get "learn/lesson7"
   get "learn/lesson8"
   get "learn/lesson9"
+  match "learn/lesson10"
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
