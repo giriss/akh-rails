@@ -200,17 +200,16 @@ class LearnController < ApplicationController
   
   def lesson8
     @data = {
-      :METHOD => "MassPay",
+      :METHOD => "setExpressCheckout",
       :VERSION => "90",
-      :EMAILSUBJECT => "C0ol !! Aint' it, you have just received your payments from sum.mn ! :*",
       :USER => "akhil05_api1.mail.com",
       :PWD => "1381743824",
       :SIGNATURE => "AP8wAEeWcdquPOE6hUJmW1U9KBctAiUTu.2IbHJTknQnojFEGJvXtVHr",
-      :PAYMENTREQUEST_0_AMT => "EmailAddress",
+      :PAYMENTREQUEST_0_AMT => "10",
       :PAYMENTREQUEST_0_CURRENCYCODE => "USD",
-      :PAYMENTREQUEST_0_PAYMENTACTION => "akhile@dr.com",
-      :returnUrl => "10",
-      :cancelUrl => "Keep up the good work. Eny0yZz !! ;)"
+      :PAYMENTREQUEST_0_PAYMENTACTION => "SALE",
+      :returnUrl => "http://google.com",
+      :cancelUrl => "http://fb.com"
     }
     @url = "https://api-3t.sandbox.paypal.com/nvp"
     @uri = URI @url
