@@ -213,7 +213,7 @@ class LearnController < ApplicationController
       :PAYMENTREQUEST_0_CURRENCYCODE => "USD",
       :PAYMENTREQUEST_0_PAYMENTACTION => "SALE",
       :returnUrl => "http://gagkas.tk/learn/lesson10",
-      :cancelUrl => "http://fb.com"
+      :cancelUrl => "http://gagkas.tk/learn/lesson8"
     }
     @url = "https://api-3t.sandbox.paypal.com/nvp"
     @uri = URI @url
