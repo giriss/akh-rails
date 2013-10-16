@@ -228,7 +228,6 @@ class LearnController < ApplicationController
 #   @req = Net::HTTP.post_form @uri, @data
     @token = @req.body.split('=')[1].split('&')[0]
     redirect_to "https://www.sandbox.paypal.com/cgi-bin/webscr?cmd=_express-checkout&token=#{@token}"
-    render text: @ret
   end
 
 end
