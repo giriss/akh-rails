@@ -217,16 +217,14 @@ class LearnController < ApplicationController
     }
     @url = "https://api-3t.sandbox.paypal.com/nvp"
     @uri = URI @url
-#=begin
     @uri = URI.parse @url
     @https = Net::HTTP.new @uri.host, @uri.port
     @https.use_ssl = true
     @post = Net::HTTP::Post.new @uri.path
     @post.set_form_data @data
     @req = @https.start {|https| https.request @post}
-#=end
-#   @req = Net::HTTP.post_form @uri, @data
-    @token = @req.body.split('TOKEN=')[2].split('&')[0]
+    @token = @req.body.split('TOKEN=')[1].split('&')[0]
+    
     redirect_to "https://www.sandbox.paypal.com/cgi-bin/webscr?cmd=_express-checkout&token=#{@token}"
   end
   
