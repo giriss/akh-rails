@@ -259,7 +259,7 @@ class LearnController < ApplicationController
       :PAYERID => @payerid,
       :PAYMENTREQUEST_0_AMT => "10",
       :PAYMENTREQUEST_0_CURRENCYCODE => "USD",
-      :PAYMENTREQUEST_0_PAYMENTTYPE => ""
+      :PAYMENTREQUEST_0_PAYMENTACTION => "sale"
     }
     @url = "https://api-3t.sandbox.paypal.com/nvp"
     @uri = URI @url
@@ -269,6 +269,7 @@ class LearnController < ApplicationController
     @post = Net::HTTP::Post.new @uri.path
     @post.set_form_data @data
     @req = @https.start {|https| https.request @post}
+    render text: @req.body
   end
 
 end
