@@ -197,5 +197,34 @@ class LearnController < ApplicationController
     @ret = "Post to send money using PayPal! yeah I did it ;) !! ^_^<br />" + @req.body
     render text: @ret
   end
+  
+  def lesson8
+    @data = {
+      :METHOD => "MassPay",
+      :VERSION => "90",
+      :EMAILSUBJECT => "C0ol !! Aint' it, you have just received your payments from sum.mn ! :*",
+      :USER => "akhil05_api1.mail.com",
+      :PWD => "1381743824",
+      :SIGNATURE => "AP8wAEeWcdquPOE6hUJmW1U9KBctAiUTu.2IbHJTknQnojFEGJvXtVHr",
+      :PAYMENTREQUEST_0_AMT => "EmailAddress",
+      :PAYMENTREQUEST_0_CURRENCYCODE => "USD",
+      :PAYMENTREQUEST_0_PAYMENTACTION => "akhile@dr.com",
+      :returnUrl => "10",
+      :cancelUrl => "Keep up the good work. Eny0yZz !! ;)"
+    }
+    @url = "https://api-3t.sandbox.paypal.com/nvp"
+    @uri = URI @url
+#=begin
+    @uri = URI.parse @url
+    @https = Net::HTTP.new @uri.host, @uri.port
+    @https.use_ssl = true
+    @post = Net::HTTP::Post.new @uri.path
+    @post.set_form_data @data
+    @req = @https.start {|https| https.request @post}
+#=end
+#   @req = Net::HTTP.post_form @uri, @data
+    @ret = "Post to send money using PayPal! yeah I did it ;) !! ^_^<br />" + @req.body
+    render text: @ret
+  end
 
 end
