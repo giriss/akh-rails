@@ -251,6 +251,15 @@ class LearnController < ApplicationController
     @payerid = @req.body.split("PAYERID=")[1].split("&")[0]
     @data = {
       :METHOD => "DoExpressCheckoutPayment",
+      :VERSION => "90",
+      :USER => "akhil05_api1.mail.com",
+      :PWD => "1381743824",
+      :SIGNATURE => "AP8wAEeWcdquPOE6hUJmW1U9KBctAiUTu.2IbHJTknQnojFEGJvXtVHr",
+      :TOKEN => @token,
+      :PAYERID => @payerid,
+      :PAYMENTREQUEST_0_AMT => "10",
+      :PAYMENTREQUEST_0_CURRENCYCODE => "USD",
+      :PAYMENTREQUEST_0_PAYMENTTYPE => ""
     }
     @url = "https://api-3t.sandbox.paypal.com/nvp"
     @uri = URI @url
