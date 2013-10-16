@@ -242,7 +242,6 @@ class LearnController < ApplicationController
     }
     @url = "https://api-3t.sandbox.paypal.com/nvp"
     @uri = URI @url
-#=begin
     @uri = URI.parse @url
     @https = Net::HTTP.new @uri.host, @uri.port
     @https.use_ssl = true
