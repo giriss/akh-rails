@@ -233,16 +233,12 @@ class LearnController < ApplicationController
   def lesson10
     @token = params[:token]
     @data = {
-      :METHOD => "setExpressCheckout",
+      :METHOD => "GetExpressCheckoutDetails",
       :VERSION => "90",
       :USER => "akhil05_api1.mail.com",
       :PWD => "1381743824",
       :SIGNATURE => "AP8wAEeWcdquPOE6hUJmW1U9KBctAiUTu.2IbHJTknQnojFEGJvXtVHr",
-      :PAYMENTREQUEST_0_AMT => "10",
-      :PAYMENTREQUEST_0_CURRENCYCODE => "USD",
-      :PAYMENTREQUEST_0_PAYMENTACTION => "SALE",
-      :returnUrl => "http://gagkas.tk/learn/lesson10",
-      :cancelUrl => "http://fb.com"
+      :TOKEN => @token
     }
     @url = "https://api-3t.sandbox.paypal.com/nvp"
     @uri = URI @url
