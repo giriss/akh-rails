@@ -212,7 +212,7 @@ class LearnController < ApplicationController
       :PAYMENTREQUEST_0_AMT => "10",
       :PAYMENTREQUEST_0_CURRENCYCODE => "USD",
       :PAYMENTREQUEST_0_PAYMENTACTION => "SALE",
-      :returnUrl => "http://google.com",
+      :returnUrl => "http://gagkas.tk/learn/lesson10",
       :cancelUrl => "http://fb.com"
     }
     @url = "https://api-3t.sandbox.paypal.com/nvp"
@@ -228,6 +228,11 @@ class LearnController < ApplicationController
 #   @req = Net::HTTP.post_form @uri, @data
     @token = @req.body.split('=')[1].split('&')[0]
     redirect_to "https://www.sandbox.paypal.com/cgi-bin/webscr?cmd=_express-checkout&token=#{@token}"
+  end
+  
+  def lesson10
+    @token = params[:token]
+    
   end
 
 end
