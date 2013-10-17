@@ -203,12 +203,14 @@ class LearnController < ApplicationController
   end
   
   def lesson9
-    require 'paypal-sdk-merchant'
+    include PayPal::SDK::Merchant
+=begin
     PayPal::SDK.configure(
   :mode      => "sandbox",  # Set "live" for production
   :username  => "akhil05_api1.mail.com",
   :password  => "1381743824",
   :signature => "AP8wAEeWcdquPOE6hUJmW1U9KBctAiUTu.2IbHJTknQnojFEGJvXtVHr" )
+=end
 @api = PayPal::SDK::Merchant::API.new
 
 # Build request object
