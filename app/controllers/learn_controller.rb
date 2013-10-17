@@ -203,7 +203,6 @@ class LearnController < ApplicationController
   end
   
   def lesson9
-    #require 'paypal-sdk-merchant'
 =begin
     PayPal::SDK.configure(
   :mode      => "sandbox",  # Set "live" for production
