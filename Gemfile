@@ -7,6 +7,9 @@ gem 'rails', '4.0.0'
 # Use postgresql as the database for Active Record
 gem 'pg'
 
+# PayPal
+gem 'paypal-sdk-merchant'
+
 gem 'nokogiri'
 
 # Use SCSS for stylesheets
