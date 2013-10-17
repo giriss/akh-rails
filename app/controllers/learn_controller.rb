@@ -234,8 +234,10 @@ class LearnController < ApplicationController
 # Access Response
 if @set_express_checkout_response.success?
   @token = @set_express_checkout_response.Token
+  render @token
 else
   @errors = @set_express_checkout_response.Errors
+  render @errors
 end
 =begin
     @data = {
@@ -260,7 +262,7 @@ end
     @req = @https.start {|https| https.request @post}
     @token = @req.body.split('TOKEN=')[1].split('&')[0]
 =end
-    redirect_to "https://www.sandbox.paypal.com/cgi-bin/webscr?cmd=_express-checkout&token=#{@token}"
+    #redirect_to "https://www.sandbox.paypal.com/cgi-bin/webscr?cmd=_express-checkout&token=#{@token}"
   end
   
   def lesson10
