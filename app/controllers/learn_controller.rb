@@ -204,12 +204,14 @@ class LearnController < ApplicationController
   
   def lesson9
     require 'paypal-sdk-merchant'
+=begin
     PayPal::SDK.configure(
   :mode      => "sandbox",  # Set "live" for production
   :app_id    => "APP-80W284485P519543T",
   :username  => "jb-us-seller_api1.paypal.com",
   :password  => "WX4WTU3S8MY44S7F",
   :signature => "AFcWxV21C7fd0v3bYYYRCpSSRl31A7yDhhsPUU2XhtMoZXsWHFxu-RWy" )
+=end
 @api = PayPal::SDK::Merchant::API.new
 
 # Build request object
@@ -243,7 +245,7 @@ if @set_express_checkout_response.success?
   render text: "He" + @token
 else
   @errors = @set_express_checkout_response.Errors
-  render text: @errors
+  render text: @errors.join
 end
 =begin
     @data = {
