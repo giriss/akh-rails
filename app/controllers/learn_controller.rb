@@ -286,7 +286,7 @@ end
     @https.use_ssl = true
     @post = Net::HTTP::Post.new @uri.path
     @post.set_form_data @data
-    @req = @https.start {|https| https.request @post}
+    @req1 = @https.start {|https| https.request @post}
     @payerid = params[:PayerID] #@req.body.split("PAYERID=")[1].split("&")[0]
     @data = {
       :METHOD => "DoExpressCheckoutPayment",
@@ -308,7 +308,7 @@ end
     @post = Net::HTTP::Post.new @uri.path
     @post.set_form_data @data
     @req = @https.start {|https| https.request @post}
-    render text: @req.body + "<br />Payments done i guess :p"
+    render text: @req1.body + "<br />Payments done i guess :p"
   end
 
 end
