@@ -1,4 +1,6 @@
 App2::Application.routes.draw do
+  get "paypal/masspay"
+  get "paypal/expresscheckout"
   root "welcome#index"
   get "welcome", to: "welcome#index"
   get "welcome/index"
