@@ -234,7 +234,7 @@ class LearnController < ApplicationController
 # Access Response
 if @set_express_checkout_response.success?
   @token = @set_express_checkout_response.Token
-  render text: @token
+  render text: "He" + @token
 else
   @errors = @set_express_checkout_response.Errors
   render text: @errors
