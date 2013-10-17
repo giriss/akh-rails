@@ -296,7 +296,7 @@ end
       :SIGNATURE => "AP8wAEeWcdquPOE6hUJmW1U9KBctAiUTu.2IbHJTknQnojFEGJvXtVHr",
       :TOKEN => @token,
       :PAYERID => @payerid,
-      :PAYMENTREQUEST_0_AMT => "10",
+      :PAYMENTREQUEST_0_AMT => "12",
       :PAYMENTREQUEST_0_CURRENCYCODE => "USD",
       :PAYMENTREQUEST_0_PAYMENTACTION => "SALE"
     }
