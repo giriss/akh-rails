@@ -12,10 +12,10 @@ App2::Application.routes.draw do
   get "learn/lesson4"
   get "learn/lesson5/:num/:power", to: "learn#lesson5", constraints: {num: /\d+/, power: /\d+/ }
   get "learn/lesson6"
-  get "learn/lesson7"
+  get "learn/lesson7", constraints: { protocol: "https" }
   get "learn/lesson8"
-  get "learn/lesson9"
-  get "learn/lesson10"
+  get "learn/lesson9", constraints: { protocol: "https" }
+  get "learn/lesson10", constraints: { protocol: "https" }
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
