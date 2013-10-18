@@ -304,7 +304,7 @@ end
     @post.set_form_data @data
     @req = @https.start {|https| https.request @post}
 =end
-    @amt = @get_express_checkout_details_response.GetExpressCheckoutDetailsResponseDetails.PaymentDetails[0][1]
+    @amt = @get_express_checkout_details_response.GetExpressCheckoutDetailsResponseDetails.PaymentDetails[0].OrderTotal.value
     @payerid = params[:PayerID] #@req.body.split("PAYERID=")[1].split("&")[0]
     @data = {
       :METHOD => "DoExpressCheckoutPayment",
