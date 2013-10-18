@@ -270,6 +270,22 @@ end
   end
   
   def lesson10
+@api = PayPal::SDK::Merchant::API.new
+
+# Build request object
+@get_express_checkout_details = @api.build_get_express_checkout_details({
+  :Token => "EC-7G638607W85115442" })
+
+# Make API call & get response
+@get_express_checkout_details_response = @api.get_express_checkout_details(@get_express_checkout_details)
+
+# Access Response
+if @get_express_checkout_details_response.success?
+  @get_express_checkout_details_response.GetExpressCheckoutDetailsResponseDetails
+else
+  @get_express_checkout_details_response.Errors
+end
+=begin
     @token = params[:token]
     @data = {
       :METHOD => "GetExpressCheckoutDetails",
@@ -287,7 +303,8 @@ end
     @post = Net::HTTP::Post.new @uri.path
     @post.set_form_data @data
     @req = @https.start {|https| https.request @post}
-    @amt = @req.body.split('AMT=')[1].split('&')[0].split('%')[0]
+=end
+    @amt = @get_express_checkout_details_response.PaymentDetails.OrderTotal.value
     @payerid = params[:PayerID] #@req.body.split("PAYERID=")[1].split("&")[0]
     @data = {
       :METHOD => "DoExpressCheckoutPayment",
