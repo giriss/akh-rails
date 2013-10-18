@@ -7,6 +7,9 @@ gem 'rails', '4.0.0'
 # Use postgresql as the database for Active Record
 gem 'pg'
 
+#----------------
+gem 'bartt-ssl_requirement', :require => 'ssl_requirement'
+
 # PayPal
 gem 'paypal-sdk-merchant'
 
