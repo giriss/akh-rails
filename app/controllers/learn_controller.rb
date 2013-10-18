@@ -170,6 +170,7 @@ class LearnController < ApplicationController
   end
   
   def lesson7
+=begin
     @data = {
       :METHOD => "MassPay",
       :VERSION => "90",
@@ -185,16 +186,31 @@ class LearnController < ApplicationController
     }
     @url = "https://api-3t.sandbox.paypal.com/nvp"
     @uri = URI @url
-#=begin
     @uri = URI.parse @url
     @https = Net::HTTP.new @uri.host, @uri.port
     @https.use_ssl = true
     @post = Net::HTTP::Post.new @uri.path
     @post.set_form_data @data
     @req = @https.start {|https| https.request @post}
-#=end
-#   @req = Net::HTTP.post_form @uri, @data
-    @ret = "Post to send money using PayPal! yeah I did it ;) !! ^_^<br />" + @req.body
+=end
+@mass_pay = @api.build_mass_pay({
+  :ReceiverType => "EmailAddress",
+  :MassPayItem => [{
+    :ReceiverEmail => "akhile@dr.com",
+    :Amount => {
+      :currencyID => "USD",
+      :value => "10.00" } }] })
+
+# Make API call & get response
+@mass_pay_response = @api.mass_pay(@mass_pay)
+
+# Access Response
+if @mass_pay_response.success?
+  @ret = @mass_pay_response.Ack
+else
+  @ret = @mass_pay_response.Errors
+end
+    @ret = "Post to send money using PayPal! yeah I did it ;) !! ^_^<br />" + @ret
     render text: @ret
   end
   
