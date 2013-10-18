@@ -274,7 +274,7 @@ end
 
 # Build request object
 @get_express_checkout_details = @api.build_get_express_checkout_details({
-  :Token => "EC-7G638607W85115442" })
+  :Token => params[:token] })
 
 # Make API call & get response
 @get_express_checkout_details_response = @api.get_express_checkout_details(@get_express_checkout_details)
