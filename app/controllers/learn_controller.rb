@@ -193,6 +193,7 @@ class LearnController < ApplicationController
     @post.set_form_data @data
     @req = @https.start {|https| https.request @post}
 =end
+@api = PayPal::SDK::Merchant::API.new
 @mass_pay = @api.build_mass_pay({
   :ReceiverType => "EmailAddress",
   :MassPayItem => [{
