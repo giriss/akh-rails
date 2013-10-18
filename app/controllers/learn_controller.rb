@@ -273,8 +273,9 @@ end
 @api = PayPal::SDK::Merchant::API.new
 
 # Build request object
+@token = params[:token]
 @get_express_checkout_details = @api.build_get_express_checkout_details({
-  :Token => params[:token] })
+  :Token => @token })
 
 # Make API call & get response
 @get_express_checkout_details_response = @api.get_express_checkout_details(@get_express_checkout_details)
