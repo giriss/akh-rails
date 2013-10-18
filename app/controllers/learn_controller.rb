@@ -307,6 +307,7 @@ end
 =end
     @amt = @get_express_checkout_details_response.GetExpressCheckoutDetailsResponseDetails.PaymentDetails[0].OrderTotal.value
     @payerid = params[:PayerID] #@req.body.split("PAYERID=")[1].split("&")[0]
+=begin
     @data = {
       :METHOD => "DoExpressCheckoutPayment",
       :VERSION => "90",
@@ -327,7 +328,31 @@ end
     @post = Net::HTTP::Post.new @uri.path
     @post.set_form_data @data
     @req = @https.start {|https| https.request @post}
-    render text: @req.body + "<br />Payments done i guess :p"
+=end
+@do_express_checkout_payment = @api.build_do_express_checkout_payment({
+  :DoExpressCheckoutPaymentRequestDetails => {
+    :PaymentAction => "Sale",
+    :Token => @token,
+    :PayerID => @payerid,
+    :PaymentDetails => [{
+      :OrderTotal => {
+        :currencyID => "USD",
+        :value => @amt },
+    }] } })
+
+# Make API call & get response
+@do_express_checkout_payment_response = @api.do_express_checkout_payment(@do_express_checkout_payment)
+
+# Access Response
+if @do_express_checkout_payment_response.success?
+  @do_express_checkout_payment_response.DoExpressCheckoutPaymentResponseDetails
+  @do_express_checkout_payment_response.FMFDetails
+  @ret = @do_express_checkout_payment_response.Ack
+else
+  @ret = @do_express_checkout_payment_response.Errors.join
+end
+
+    render text: @ret
   end
 
 end
