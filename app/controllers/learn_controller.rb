@@ -224,9 +224,8 @@ class LearnController < ApplicationController
       :ItemTotal => {
         :currencyID => "USD",
         :value => "12" },
-      :NotifyURL => "https://paypal-sdk-samples.herokuapp.com/merchant/ipn_notify",
       :PaymentDetailsItem => [{
-        :Name => "Deposit dollar",
+        :Name => "Deposit money",
         :Quantity => 1,
         :Amount => {
           :currencyID => "USD",
